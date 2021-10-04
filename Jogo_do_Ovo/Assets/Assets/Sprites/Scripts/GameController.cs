@@ -7,7 +7,7 @@ public class GameController : MonoBehaviour
 {
     public GameOverScreen GameOverScreen;
 
-    public void GameOver ()
+    public void GameOver()
     {
         GameOverScreen.Setup();
     }

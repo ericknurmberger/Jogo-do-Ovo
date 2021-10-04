@@ -13,6 +13,8 @@ public class Eggnormal : MonoBehaviour {
 
     private float VidaDoPersonagem;
 
+    public GameController gameController;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -45,6 +47,7 @@ public class Eggnormal : MonoBehaviour {
         {
             VidaDoPersonagem = 0;
             CrackEgg();
+            gameController.GameOver();
         }
     }
 
