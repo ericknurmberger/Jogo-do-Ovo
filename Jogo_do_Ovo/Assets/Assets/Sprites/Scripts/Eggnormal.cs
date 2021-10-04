@@ -5,6 +5,9 @@ using UnityEngine;
 public class Eggnormal : MonoBehaviour {
 
     private GameObject Jogador;
+    new Rigidbody2D rigidbody2D;
+
+    //public float minimumFall = 2f;
 
     private float UltimaPosicaoEmY;
     private float DistanciaDeQueda;
@@ -13,11 +16,18 @@ public class Eggnormal : MonoBehaviour {
 
     private float VidaDoPersonagem;
 
+    //bool grounded = false;
+
+    //bool wasGrounded;
+   // bool wasFalling;
+    //float startOfFall;
+
     public GameController gameController;
 
     // Start is called before the first frame update
     void Start()
     {
+        rigidbody2D = GetComponent<Rigidbody2D>();
         Jogador = GameObject.FindWithTag("Player");
         VidaDoPersonagem = 1;
     }
@@ -25,17 +35,17 @@ public class Eggnormal : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        if (UltimaPosicaoEmY > Jogador.transform.position.y /*&& controlador.velocity.y < 0*/)
+        if (UltimaPosicaoEmY > Jogador.transform.position.y && rigidbody2D.velocity.y < 0)
         {
             DistanciaDeQueda += UltimaPosicaoEmY - Jogador.transform.position.y;
         }
         UltimaPosicaoEmY = Jogador.transform.position.y;
-        if (DistanciaDeQueda >= DistanciaMaximaDeQueda /*&& gameObject.isGrounded*/)
+        if (DistanciaDeQueda >= DistanciaMaximaDeQueda && rigidbody2D.velocity.y < 0)
         {
             VidaDoPersonagem = 0;
             ZerarVariaveis();
         }
-        if (DistanciaDeQueda < DistanciaMaximaDeQueda /*&& controlador.isGrounded*/)
+        if (DistanciaDeQueda < DistanciaMaximaDeQueda && rigidbody2D.velocity.y < 0)
         {
             ZerarVariaveis();
         }
@@ -62,4 +72,35 @@ public class Eggnormal : MonoBehaviour {
         Destroy(gameObject);
     }
 
-}
+    /*private void FixedUpdate()
+    {
+        CheckGround();
+
+        if (!wasFalling && isFalling) startOfFall = transform.position.y;
+        if (!wasGrounded && grounded) TakeDamage();
+
+        wasGrounded = grounded;
+        wasFalling = isFalling;
+    }
+
+    void CheckGround()
+        {
+        grounded = Physics2D.Raycast(transform.position + Vector3.up, -Vector3.up, 1.01f);
+        }
+
+    bool isFalling { get 
+        {
+            return (!grounded && rigidbody2D.velocity.y < 0);
+        } }
+
+    void TakeDamage()
+        {
+        float fallDistance = startOfFall - transform.position.y;
+
+        if (fallDistance > minimumFall)
+        {
+            Debug.Log("Player caiu " + fallDistance + " centímetros");
+        }
+        }*/
+
+}  
