@@ -7,20 +7,12 @@ public class Eggnormal : MonoBehaviour {
     private GameObject Jogador;
     new Rigidbody2D rigidbody2D;
 
-    //public float minimumFall = 2f;
-
     private float UltimaPosicaoEmY;
     private float DistanciaDeQueda;
 
     public float DistanciaMaximaDeQueda = 4;
 
     private float VidaDoPersonagem;
-
-    //bool grounded = false;
-
-    //bool wasGrounded;
-   // bool wasFalling;
-    //float startOfFall;
 
     public GameController gameController;
 
@@ -40,15 +32,6 @@ public class Eggnormal : MonoBehaviour {
             DistanciaDeQueda += UltimaPosicaoEmY - Jogador.transform.position.y;
         }
         UltimaPosicaoEmY = Jogador.transform.position.y;
-        if (DistanciaDeQueda >= DistanciaMaximaDeQueda && rigidbody2D.velocity.y < 0)
-        {
-            VidaDoPersonagem = 0;
-            ZerarVariaveis();
-        }
-        if (DistanciaDeQueda < DistanciaMaximaDeQueda && rigidbody2D.velocity.y < 0)
-        {
-            ZerarVariaveis();
-        }
         if (VidaDoPersonagem >= 1)
         {
             VidaDoPersonagem = 1;
@@ -61,6 +44,24 @@ public class Eggnormal : MonoBehaviour {
         }
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.CompareTag("Floor"))
+        {
+            if (DistanciaDeQueda > DistanciaMaximaDeQueda)
+            {
+                VidaDoPersonagem = 0;
+            }
+            ZerarVariaveis();
+        }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, DistanciaMaximaDeQueda);
+    }
+
     void ZerarVariaveis()
     {
         DistanciaDeQueda = 0;
@@ -71,36 +72,5 @@ public class Eggnormal : MonoBehaviour {
     {
         Destroy(gameObject);
     }
-
-    /*private void FixedUpdate()
-    {
-        CheckGround();
-
-        if (!wasFalling && isFalling) startOfFall = transform.position.y;
-        if (!wasGrounded && grounded) TakeDamage();
-
-        wasGrounded = grounded;
-        wasFalling = isFalling;
-    }
-
-    void CheckGround()
-        {
-        grounded = Physics2D.Raycast(transform.position + Vector3.up, -Vector3.up, 1.01f);
-        }
-
-    bool isFalling { get 
-        {
-            return (!grounded && rigidbody2D.velocity.y < 0);
-        } }
-
-    void TakeDamage()
-        {
-        float fallDistance = startOfFall - transform.position.y;
-
-        if (fallDistance > minimumFall)
-        {
-            Debug.Log("Player caiu " + fallDistance + " centímetros");
-        }
-        }*/
 
 }  
