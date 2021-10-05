@@ -38,7 +38,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bc455e558ecb8944b8ce070bdf573b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  windForce: 2
+  windForce: 3
   direction: 0
 --- !u!1 &7977186470631000938
 GameObject:
@@ -87,7 +87,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.3462869, y: 0.13012576}
+  m_Offset: {x: 0.22018826, y: -0.005672574}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -98,7 +98,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.0889776, y: 1.3990526}
+  m_Size: {x: 0.8367803, y: 1.0110571}
   m_EdgeRadius: 0
 --- !u!114 &1867327135
 MonoBehaviour:
@@ -115,7 +115,7 @@ MonoBehaviour:
   isOn: 0
   fanLayer:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 64
   fanOn: {fileID: 5139941960916340484}
   fanOff: {fileID: 3996395968786969020}
 --- !u!1001 &4638795588070438469

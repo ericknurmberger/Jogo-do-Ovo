@@ -6,10 +6,16 @@ using UnityEngine.UI;
 public class GameController : MonoBehaviour
 {
     public GameOverScreen GameOverScreen;
+    public LevelClearScreen LevelClearScreen;
 
     public void GameOver()
     {
         GameOverScreen.Setup();
+    }
+
+    public void LevelClear()
+    {
+        LevelClearScreen.Setup();
     }
 
 

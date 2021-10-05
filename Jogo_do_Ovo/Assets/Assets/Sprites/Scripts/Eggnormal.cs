@@ -78,6 +78,11 @@ public class Eggnormal : MonoBehaviour {
             }
             ZerarVariaveis();
         }
+
+        if (collision.collider.CompareTag("Nest"))
+        {
+            gameController.LevelClear();
+        }
     }
 
     private void OnDrawGizmos()

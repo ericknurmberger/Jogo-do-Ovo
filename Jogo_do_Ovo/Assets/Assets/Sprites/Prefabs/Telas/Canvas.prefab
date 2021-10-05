@@ -503,7 +503,7 @@ GameObject:
   - component: {fileID: 450949901273103536}
   - component: {fileID: 450949901273103542}
   - component: {fileID: 450949901273103537}
-  - component: {fileID: 450949901273103543}
+  - component: {fileID: 1035141561}
   m_Layer: 5
   m_Name: NextLevel
   m_TagString: Untagged
@@ -570,7 +570,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &450949901273103543
+--- !u!114 &1035141561
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -579,7 +579,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 450949901273103539}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d3713dc1d85f6b45b5c6c421b0ec972, type: 3}
+  m_Script: {fileID: 11500000, guid: 2a570e23824bb164bab73662a0a85d89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &450949901408312614
@@ -729,7 +729,7 @@ GameObject:
   - component: {fileID: 450949901476489338}
   - component: {fileID: 450949901476489285}
   m_Layer: 5
-  m_Name: Button
+  m_Name: NexttLevelButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -837,9 +837,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 450949901273103543}
-        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: PlayGame
+      - m_Target: {fileID: 1035141561}
+        m_TargetAssemblyTypeName: LevelClearScreen, Assembly-CSharp
+        m_MethodName: NextLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
