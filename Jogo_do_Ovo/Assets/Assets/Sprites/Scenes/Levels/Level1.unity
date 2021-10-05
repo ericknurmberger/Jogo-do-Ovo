@@ -889,6 +889,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 450949901476489285, guid: 53f0c4f1feb1baf4086d4fe3612b17f9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1035141561}
+    - target: {fileID: 450949901476489285, guid: 53f0c4f1feb1baf4086d4fe3612b17f9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: NextLevel
+      objectReference: {fileID: 0}
+    - target: {fileID: 450949901476489285, guid: 53f0c4f1feb1baf4086d4fe3612b17f9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: LevelClearScreen, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 450949902113337671, guid: 53f0c4f1feb1baf4086d4fe3612b17f9, type: 3}
       propertyPath: m_Name
       value: Canvas
