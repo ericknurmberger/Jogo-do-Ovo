@@ -14,6 +14,10 @@ public class Eggnormal : MonoBehaviour {
 
     private float VidaDoPersonagem;
 
+    public bool isArmored;
+    public GameObject normalEgg;
+    public GameObject armoredEgg;
+
     public GameController gameController;
 
     // Start is called before the first frame update
@@ -44,13 +48,33 @@ public class Eggnormal : MonoBehaviour {
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Armor"))
+        {
+            Debug.Log("pegou armadura");
+            isArmored = true;
+            normalEgg.SetActive(!isArmored);
+            armoredEgg.SetActive(isArmored);
+            Destroy(collision.gameObject);
+        }
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
+
         if (collision.collider.CompareTag("Floor"))
         {
-            if (DistanciaDeQueda > DistanciaMaximaDeQueda)
+            if (DistanciaDeQueda > DistanciaMaximaDeQueda && isArmored == false)
             {
                 VidaDoPersonagem = 0;
+            }
+            ZerarVariaveis();
+            if (DistanciaDeQueda > DistanciaMaximaDeQueda && isArmored == true)
+            {
+                isArmored = !isArmored;
+                normalEgg.SetActive(isArmored);
+                armoredEgg.SetActive(!isArmored);
             }
             ZerarVariaveis();
         }
